@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  ritabot:
+    image: ritabot
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+      DISCORD_TOKEN: MTAwMTczMzAyMTEwOTYwNDQwNA.G747vK.SiLvBo1q1Z9tgTeONvjf-2iYW27aYs0Punlt1s
+
+    ports:
+      - 3000:3000
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "src/bot.js"]
