@@ -19,12 +19,6 @@ const joinMessage = require("./commands/info_commands/join");
 // ----------
 // Core Code
 // ----------
-const activities_list = [
-   "tr help", 
-   "translations",
-   "for messages to translate",
-   "messages"
-];
 
 exports.listen = function listen (client)
 {
@@ -39,11 +33,7 @@ exports.listen = function listen (client)
       "ready",
       async () =>
       {
-         setInterval(() => {
-            const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
-            client.user.setActivity(activities_list[index], {type: 'WATCHING'});
-         }, 10000);
-         
+
          await db.initializeDatabase(client);
 
          // -----------------
@@ -86,8 +76,8 @@ exports.listen = function listen (client)
 
          client.user.setPresence({
             "activity": {
-               "name": "!tr help",
-               "type": "LISTENING"
+               "name": "ritabot.gg | !tr help",
+               "type": "PLAYING"
             },
             "status": "online"
          });
