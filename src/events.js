@@ -76,12 +76,18 @@ exports.listen = function listen (client)
 
          client.user.setPresence({
             "activity": {
-               "name": "ritabot.gg | !tr help",
-               "type": "PLAYING"
+               "name": "Devil is Here | !tr help",
+               "type": "Watching you"
             },
             "status": "online"
          });
 
+         console.log("bot is online")
+
+        client.users.fetch(auth.devID[0]).then((user) => {
+         user.send("Bot is online");
+       });
+     
          // ---------------------
          // Log connection event
          // ---------------------
