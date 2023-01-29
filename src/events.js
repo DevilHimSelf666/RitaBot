@@ -82,12 +82,9 @@ exports.listen = function listen (client)
             "status": "online"
          });
 
-         console.log("bot is online")
+         console.log("bot is online");
 
-      //   client.users.fetch(auth.devID[0]).then((user) => {
-      //    user.send("Bot is online");
-      //  });
-     
+      
          // ---------------------
          // Log connection event
          // ---------------------
