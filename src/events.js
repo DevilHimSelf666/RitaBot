@@ -84,9 +84,9 @@ exports.listen = function listen (client)
 
          console.log("bot is online")
 
-        client.users.fetch(auth.devID[0]).then((user) => {
-         user.send("Bot is online");
-       });
+      //   client.users.fetch(auth.devID[0]).then((user) => {
+      //    user.send("Bot is online");
+      //  });
      
          // ---------------------
          // Log connection event
