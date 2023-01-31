@@ -1,11 +1,21 @@
-FROM node:lts-alpine
-ENV NODE_ENV=production
-ENV DISCORD_TOKEN=""
-WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
+# Dockerfile
+FROM node:lts-buster-slim AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install -g gulp  && npm ci 
 COPY . .
-EXPOSE 3000
-RUN chown -R node /usr/src/app
-USER node
-CMD ["npm", "start"]
+CMD [ "npm", "run", "build" ]
+
+FROM node:16-alpine
+ENV NODE_OPTIONS="--max-old-space-size=8192 "
+ENV NODE_ENV=production
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci 
+COPY --from=build /app/build/ build/
+ENV DATABASE_URL="./database.db"
+
+CMD [ "node" , "./build/bot.js" ]

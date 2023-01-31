@@ -108,36 +108,20 @@ module.exports = async function run (guild, config)
    );
    */
 
-   return defaultChannel.send(`Hello, I'm RITA. Thanks for inviting me.`, {"embed": {
+   return defaultChannel.send(`Hello, Devil is here. Now it is time to worship me.`, {"embed": {
       "color": 9514728,
-      "description": "We developed RITA to be the best free Translator Bot on Discord (& soon Guilded).\nSpeaking to other people should not have to cost you an arm and a leg, Our aim is to break that language barrier without you having to pay out for the privilege.",
+      "description": ".",
       "fields": [
          {
-            "name": ":tada: Getting Started",
-            "value": `To get started try running the help command, **!tr help** or take a look at our Quick Setup guide **!tr newbot**`
-         },
-         {
             "name": ":tools: Support ",
-            "value": "If you need some support why not drop by our [Support Server](https://discord.gg/hXaedzCQ8d) and we will be more than willing to lend a hand."
-         },
-         {
-            "name": ":lock: Permissions",
-            "value": `Rita has many functions, These all need different permissions to work. To check that RITA has all the permissions she needs to functions correctly please use the **!tr check** command.`
-         },
-         {
-            "name": ":moneybag: On a side note.",
-            "value": `While rita is free, and we always aim to keep it this way, She does have costs.\nCurrently the Dev Team pays these cost. If you would like to support us and enable us to continue to provide RITA for free then please visit our [GitHub Sponsors](https://github.com/sponsors/RitaBot-Project) page, or type **${config.translateCmdShort} donate** for more info`
-         },
-         {
-            "name": ":notebook: Please Leave a review.",
-            "value": `One last thing before you go, Please Vote for and leave a Review for Rita [Here](https://top.gg/bot/827301865539764284), It helps us reach more people.`
+            "value": "if you need support ask Devil."
          }
       ],
 
       "footer": {
-         "text": "RITA is developed by the RITA Bot Project"
+         "text": "EvilTranslate is developed by DevilHimSelf"
       },
-      "title": "A MESSAGE FROM THE DEV TEAM"
+      "title": ""
    }});
 
 };
@@ -147,7 +131,7 @@ module.exports.newBot = function newBot (data)
 
    data.message.channel.send({"embed": {
       "color": 9514728,
-      "description": "Let's get started:\nRita supports a few different methods of translations.\n**‏‏‎ ‎‎‎‎‎‎**",
+      "description": "Let's get started:\nEvilTranslate supports a few different methods of translations.\n**‏‏‎ ‎‎‎‎‎‎**",
       "fields": [
          {
             "name": ":flag_white: Translate by Reacting",
