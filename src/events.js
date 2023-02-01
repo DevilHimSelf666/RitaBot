@@ -13,7 +13,7 @@ const db = require("./core/db");
 // Const setStatus = require("./core/status");
 const react = require("./commands/translation_commands/translate.react");
 const botVersion = require("../package.json").version;
-const botCreator = "Rita Bot Project";
+const botCreator = "github.com/DevilHimSelf666";
 const joinMessage = require("./commands/info_commands/join");
 
 // ----------
@@ -84,7 +84,6 @@ exports.listen = function listen (client)
 
          console.log("bot is online");
 
-      
          // ---------------------
          // Log connection event
          // ---------------------

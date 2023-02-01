@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 const gulp = require("gulp");
 const eslint = require("gulp-eslint");
-const watch = require("rita-gulp-watch");
 const lec = require("gulp-line-ending-corrector");
 // const uglify = require('gulp-uglify-es').default;
 
@@ -41,4 +40,3 @@ gulp.task("lint", lint);
 gulp.task("watch", GulpWatch);
 gulp.task("default", gulp.parallel(lint, compress));
 gulp.task("build", gulp.parallel(lint, compress));
-
