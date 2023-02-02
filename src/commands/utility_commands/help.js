@@ -6,7 +6,7 @@
 const sendMessage = require("../../core/command.send");
 const colors = require("../../core/colors");
 const discord = require("discord.js");
-const embed = new discord.MessageEmbed();
+const embed = new discord.EmbedBuilder();
 const auth = require("../../core/auth");
 const helpFooter = `**For more help join our official [support server](<https://discord.gg/hXaedzCQ8d>)**\n\n`;
 

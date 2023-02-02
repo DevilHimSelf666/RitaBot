@@ -15,6 +15,7 @@ const react = require("./commands/translation_commands/translate.react");
 const botVersion = require("../package.json").version;
 const botCreator = "github.com/DevilHimSelf666";
 const joinMessage = require("./commands/info_commands/join");
+const { DiscordAPIError } = require("discord.js");
 
 // ----------
 // Core Code

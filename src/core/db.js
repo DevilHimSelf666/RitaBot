@@ -271,6 +271,12 @@ const Tasks = db.define(
 // -------------------
 
 // eslint-disable-next-line require-await
+/**
+ * Initialize database
+ *
+ * @param client {Discord.Client} Input string
+ */
+
 exports.initializeDatabase = async function initializeDatabase (client)
 {
 
@@ -293,14 +299,15 @@ exports.initializeDatabase = async function initializeDatabase (client)
          "tasks_origin_dest",
          {logging: false}
       );
-      const guilds = client.guilds.cache.array().length;
-      const guildsArray = client.guilds.cache.array();
+      const guildsArray = [...client.guilds.cache]
+      const guilds = guildsArray.length;
+     
       let i = 0;
       // console.log("DEBUG: Active Check all Active Guilds");
       for (i = 0; i < guilds; i += 1)
       {
 
-         guild = guildsArray[i];
+         guild = guildsArray[i][1];
          const guildID = guild.id;
          // eslint-disable-next-line no-await-in-loop
          await Stats.upsert({"id": guildID,

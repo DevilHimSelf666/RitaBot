@@ -17,15 +17,21 @@ require("dotenv").config({
    "path": env
 });
 const discord = require("discord.js");
+const message_intents = require("./intents");
+// const client = new discord.Client({
+//    "restRequestTimeout": time.mid,
+//    "shards": "auto",
+//    "messageEditHistoryMaxSize": 0,
+//    "messageCacheLifetime": 30,
+//    "messageSweepInterval": 90,
+//    "messageCacheMaxSize": 0
+// });
 
-const client = new discord.Client({
-   "restRequestTimeout": time.mid,
-   "shards": "auto",
-   "messageEditHistoryMaxSize": 0,
-   "messageCacheLifetime": 30,
-   "messageSweepInterval": 90,
-   "messageCacheMaxSize": 0
-});
+
+const client = new discord.Client({intents: message_intents.GetIntents(),shards:"auto",makeCache:discord.Options.cacheWithLimits({
+   ...discord.Options.DefaultMakeCacheSettings   
+})});
+
 const auth = require("./core/auth");
 
 /*

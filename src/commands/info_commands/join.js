@@ -20,7 +20,7 @@ module.exports = async function run (guild, config)
    Override: if (guild.systemChannel)
    {
 
-      if (guild.systemChannel.permissionsFor(guild.me).has("SEND_MESSAGES"))
+      if (guild.systemChannel.permissionsFor(guild.members.me).has("SEND_MESSAGES"))
       {
 
          defaultChannel = guild.systemChannel;
