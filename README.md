@@ -1,7 +1,7 @@
 
 
 <h1 align="center">Evil Translate</h1>
-<p align="center">Based on RITA bot.</p>
+<p align="center">Based on RITA bot <b> BUT ALWAYS FREE </b>.</p>
 </p>
 
 ------
