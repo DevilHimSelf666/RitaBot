@@ -45,8 +45,9 @@ you can use this template <strong>(replace APPLICATION_ID with your Application 
 
 https://discordapp.com/oauth2/authorize?&client_id=APPLICATION_ID&scope=bot&permissions=8
 
+For Usage just check [RitaBot Docs](https://docs.ritabot.gg/ritabot-docs/).
 
-## <a name="new-bot"></a>:computer: Setting up EvilTranlate
+## <a name="new-bot"></a>:computer: Setting up EvilTranlate locally
 #### 1. Fork this repository.
 
 If you don't yet have a GitHub account, [create one](https://github.com/join)! It's free and easy.
@@ -76,7 +77,7 @@ you can use this template  to invite your bot <strong>(replace APPLICATION_ID wi
 
 https://discordapp.com/oauth2/authorize?&client_id=APPLICATION_ID&scope=bot&permissions=8
 
-For more help read [RitaBot Docs](https://docs.ritabot.gg/ritabot-docs/).
+For Usage just check [RitaBot Docs](https://docs.ritabot.gg/ritabot-docs/).
 
 you are all set :)
-
+make sure to send an issue if you have any problems. I will try my best to solve your issues.
