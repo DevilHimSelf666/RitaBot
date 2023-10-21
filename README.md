@@ -41,7 +41,7 @@ docker run -e DISCORD_TOKEN=YOUR_BOT_TOKEN  pouyasamie/evil-translate-discord-bo
 ```
 #### 3. Invite the bot to your server
 Before inviting your Bot be sure to give him Admin permission
-you can use this link <strong>(replace APPLICATION_ID with your Application ID from section 2)</strong>:
+you can use this template <strong>(replace APPLICATION_ID with your Application ID from section 2)</strong>:
 
 https://discordapp.com/oauth2/authorize?&client_id=APPLICATION_ID&scope=bot&permissions=8
 
@@ -72,7 +72,10 @@ run the following command.
 yarn install && yarn start
 ```
 
-All done. you can invite your bot and enjoy it.
+you can use this template  to invite your bot <strong>(replace APPLICATION_ID with your Application ID from section 2)</strong>:
+
+https://discordapp.com/oauth2/authorize?&client_id=APPLICATION_ID&scope=bot&permissions=8
+
 For more help read [RitaBot Docs](https://docs.ritabot.gg/ritabot-docs/).
 
 you are all set :)
