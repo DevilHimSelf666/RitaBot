@@ -20,11 +20,12 @@ Also now you can run this project on <strong>Docker</strong> :)
 
 <summary></strong>contents</strong></summary>
 
+* [Run EvilTranlate on docker (Recommended)](#docker)
 * [Setting up EvilTranlate locally](#new-bot)
-* [Run EvilTranlate on docker](#docker)
 
 
-## <a name="docker"></a>:floppy_disk: Run EvilTranlate on docker ## (Recommended)
+
+## <a name="docker"></a>:floppy_disk: Run EvilTranlate on docker (Recommended)
 #### 1. Install Docker.
 - install docker using [docker documentation](https://docs.docker.com/get-docker/).
 
