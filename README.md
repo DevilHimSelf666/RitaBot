@@ -24,7 +24,7 @@ Also now you can run this project on <strong>Docker</strong> :)
 ### Prerequisites
 
 - Node.js
-- npm 
+- yarn
 - Docker (if using Docker)
 
 ## Getting Started
@@ -66,14 +66,14 @@ For Usage just check [RitaBot Docs](https://docs.ritabot.gg/ritabot-docs/).
 
 If you don't yet have a GitHub account, [create one](https://github.com/join)! It's free and easy.
 
-- Click [here](https://github.com/ZyC0R3/RitaBot/fork) or use the button in the upper right-hand side of this page to fork the repository so that it will be associated with your GitHub account.
+- Click [here](https://github.com/pouyaSamie/Evil-Translate-for-Discord-Based-on-Rita/fork) or use the button in the upper right-hand side of this page to fork the repository so that it will be associated with your GitHub account.
 
 #### 1. Clone your forked repository.
 
 Run the following command:
 
 ```properties
-foo@bar:~$ git clone git@github.com:[your-user-name]/RiTA-DiscordBot.git && cd RiTA-DiscordBot
+foo@bar:~$ git clone git@github.com:[your-user-name]/Evil-Translate-for-Discord-Based-on-Rita.git && cd Evil-Translate-for-Discord-Based-on-Rita
 ```
 
 rename `.env.sample` to `.env`
