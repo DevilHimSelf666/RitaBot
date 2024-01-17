@@ -788,7 +788,7 @@ function helpMessage (config, param)
    };
 
    // If (paramMap.hasOwnProperty(param))
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       paramMap,
       param
    ))

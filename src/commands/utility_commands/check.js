@@ -242,7 +242,7 @@ function getCheck (data)
    };
 
    const checkParam = data.cmd.params.split(" ")[0].toLowerCase();
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       validCheck,
       checkParam
    ))

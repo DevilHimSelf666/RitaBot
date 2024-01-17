@@ -9,11 +9,13 @@ const sendMessage = require("../../core/command.send");
 // Donate varible command handalr
 // ------------------------------
 
-function donate(data) {
+function donate (data)
+{
 
    const commandVariable1 = data.cmd.params.split(" ")[0].toLowerCase();
 
-   if (commandVariable1 === "github") {
+   if (commandVariable1 === "github")
+   {
 
       // console.log(`DEBUG: donate ${commandVariable1}`);
       {
@@ -34,7 +36,8 @@ function donate(data) {
       }
 
    }
-   else if (commandVariable1 === "oc") {
+   else if (commandVariable1 === "oc")
+   {
 
       // console.log(`DEBUG: donate ${commandVariable1}`);
       {
@@ -73,13 +76,15 @@ function donate(data) {
 // Command Code
 // -------------
 
-module.exports = function run(data) {
+module.exports = function run (data)
+{
 
    // -----------------------------------
    // Error if settings param is missing
    // -----------------------------------
 
-   if (!data.cmd.params) {
+   if (!data.cmd.params)
+   {
 
       data.color = "info";
       data.text =

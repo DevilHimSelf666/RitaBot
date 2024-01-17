@@ -15,7 +15,6 @@ const react = require("./commands/translation_commands/translate.react");
 const botVersion = require("../package.json").version;
 const botCreator = "github.com/DevilHimSelf666";
 const joinMessage = require("./commands/info_commands/join");
-const { DiscordAPIError } = require("discord.js");
 
 // ----------
 // Core Code
@@ -254,8 +253,8 @@ exports.listen = function listen (client)
 
          // console.error("DEBUG: Unhandled promise rejection:", reason);
          const err = `${`Unhandled Rejection` +
-           `\nCaused By:\n`}${reason.stack}` +
-           `\n${`Promise At:\n`}${promise.stack} `;
+            `\nCaused By:\n`}${reason.stack}` +
+            `\n${`Promise At:\n`}${promise.stack} `;
          return logger(
             "dev",
             err
@@ -386,7 +385,7 @@ exports.listen = function listen (client)
 
             }
 
-         // eslint-disable-next-line no-unused-vars
+            // eslint-disable-next-line no-unused-vars
          ).catch((err) => console.log("VALIDATION: New Server, No Blacklist History"));
          db.updateServerTable(guild.id, "active", true, function error (err)
          {

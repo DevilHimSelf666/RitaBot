@@ -128,7 +128,7 @@ function errorLog (error, subtype, id)
    };
 
    // If (errorTypes.hasOwnProperty(subtype))
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       errorTypes,
       subtype
    ))
@@ -273,7 +273,7 @@ module.exports = function run (type, data, subtype = null, id)
    };
 
    // If (logTypes.hasOwnProperty(type))
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       logTypes,
       type
    ))

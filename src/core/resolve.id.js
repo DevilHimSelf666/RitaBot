@@ -125,7 +125,7 @@ exports.main = function main (client, id, output = null, guild)
       }
    };
 
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       resolved.prefix && prefixMap,
       resolved.prefix
    ))
@@ -171,7 +171,7 @@ exports.main = function main (client, id, output = null, guild)
       }
    };
 
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       output && idOutputMap,
       output
    ))

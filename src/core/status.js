@@ -12,7 +12,8 @@ const auth = require("./auth");
 // ------------------
 
 // eslint-disable-next-line consistent-return
-module.exports = function run(bot, status, config, writable = true) {
+module.exports = function run (bot, status, config, writable = true)
+{
 
    const activevar = [
       `ritabot.gg | !tr help`,
@@ -34,7 +35,8 @@ module.exports = function run(bot, status, config, writable = true) {
    ];
    const statusMap =
    {
-      "busy"() {
+      "busy" ()
+      {
 
          bot.setPresence({
             "status": "dnd"
@@ -42,7 +44,8 @@ module.exports = function run(bot, status, config, writable = true) {
 
       },
 
-      "free"() {
+      "free" ()
+      {
 
          bot.setPresence({
             "status": "online"
@@ -50,7 +53,8 @@ module.exports = function run(bot, status, config, writable = true) {
 
       },
 
-      "online"() {
+      "online" ()
+      {
 
          // Run this on stratup
          bot.setPresence({
@@ -62,7 +66,8 @@ module.exports = function run(bot, status, config, writable = true) {
          });
          setInterval(
             // Every 20 seconds generate a random number and update status to that
-            function res() {
+            function res ()
+            {
 
                const actID = Math.floor(Math.random() * 6);
                bot.setPresence({
@@ -81,10 +86,11 @@ module.exports = function run(bot, status, config, writable = true) {
       }
    };
 
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       status && statusMap,
       status
-   ) && writable) {
+   ) && writable)
+   {
 
       return statusMap[status]();
 

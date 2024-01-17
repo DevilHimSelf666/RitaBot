@@ -67,7 +67,7 @@ function getLangISO (lang)
 
    }
 
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       langExceptions,
       code
    ))

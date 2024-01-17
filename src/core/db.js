@@ -277,7 +277,7 @@ const Tasks = db.define(
  * @param client {Discord.Client} Input string
  */
 
-exports.initializeDatabase = async function initializeDatabase (client)
+exports.initializeDatabase = function initializeDatabase (client)
 {
 
    // console.log("DEBUG: Stage Init/create tables - Pre Sync");
@@ -287,21 +287,25 @@ exports.initializeDatabase = async function initializeDatabase (client)
       // eslint-disable-next-line init-declarations
       let guild;
 
-      await Stats.upsert({logging: false,
-         "id": "bot"});
+      await Stats.upsert({
+         logging: false,
+         "id": "bot"
+      });
       await this.updateColumns();
       // console.log("DEBUG: New columns should be added Before this point.");
-      await Servers.upsert({logging: false,
+      await Servers.upsert({
+         logging: false,
          "id": "bot",
-         "lang": "en"});
+         "lang": "en"
+      });
       db.getQueryInterface().removeIndex(
          "tasks",
          "tasks_origin_dest",
          {logging: false}
       );
-      const guildsArray = [...client.guilds.cache]
+      const guildsArray = [...client.guilds.cache];
       const guilds = guildsArray.length;
-     
+
       let i = 0;
       // console.log("DEBUG: Active Check all Active Guilds");
       for (i = 0; i < guilds; i += 1)
@@ -310,28 +314,38 @@ exports.initializeDatabase = async function initializeDatabase (client)
          guild = guildsArray[i][1];
          const guildID = guild.id;
          // eslint-disable-next-line no-await-in-loop
-         await Stats.upsert({"id": guildID,
-            logging: false});
-         Servers.findAll({logging: false,
-            "where": {"id": guildID}}).then((projects) =>
+         await Stats.upsert({
+            "id": guildID,
+            logging: false
+         });
+         Servers.findAll({
+            logging: false,
+            "where": {"id": guildID}
+         }).then((projects) =>
          {
 
             if (projects.length === 0)
             {
 
                // console.log("DEBUG: Add Server");
-               Servers.upsert({logging: false,
+               Servers.upsert({
+                  logging: false,
                   "id": guildID,
                   "lang": "en",
-                  "active": true});
-               Stats.upsert({logging: false,
-                  "id": guildID});
+                  "active": true
+               });
+               Stats.upsert({
+                  logging: false,
+                  "id": guildID
+               });
 
             }
             // console.log("DEBUG: Active Check all Active Guilds");
-            Servers.upsert({logging: false,
+            Servers.upsert({
+               logging: false,
                "id": guildID,
-               "active": true});
+               "active": true
+            });
 
          });
 
@@ -395,8 +409,10 @@ exports.addServer = async function addServer (id, lang)
          "prefix": "!tr"
       }
    };
-   await Servers.findAll({logging: false,
-      "where": {id}}).then((server) =>
+   await Servers.findAll({
+      logging: false,
+      "where": {id}
+   }).then((server) =>
    {
 
       if (server.length === 0)
@@ -407,8 +423,10 @@ exports.addServer = async function addServer (id, lang)
             lang,
             "prefix": "!tr"
          }).catch((err) => console.log("VALIDATION: Server Already Exists in Servers Table"));
-         Stats.create({logging: false,
-            id}).catch((err) => console.log("VALIDATION: Server Already Exists in Stats Table"));
+         Stats.create({
+            logging: false,
+            id
+         }).catch((err) => console.log("VALIDATION: Server Already Exists in Stats Table"));
 
       }
 
@@ -478,9 +496,11 @@ exports.updateWebhookVar = function updateWebhookVar (id, webhookid, webhooktoke
 
    // console.log("DEBUG: Stage Update webhookID & webhookToken Variable In DB");
    return Servers.update(
-      {webhookid,
+      {
+         webhookid,
          webhooktoken,
-         webhookactive},
+         webhookactive
+      },
       {"where": {id}}
    ).then(function update ()
    {
@@ -596,8 +616,10 @@ exports.addTableColumn = async function addTableColumn (tableName, tableDefiniti
       {
 
          // Adding column with a default value
-         await db.getQueryInterface().addColumn(tableName, columnName, {"type": columnType,
-            "defaultValue": columnDefault});
+         await db.getQueryInterface().addColumn(tableName, columnName, {
+            "type": columnType,
+            "defaultValue": columnDefault
+         });
 
       }
 
@@ -626,9 +648,13 @@ exports.channelTasks = function channelTasks (data)
    {
 
       // eslint-disable-next-line no-unused-vars
-      const taskList = Tasks.findAll({logging: false,
-         "where": {"origin": id,
-            "active": true}}).then(function res (result)
+      const taskList = Tasks.findAll({
+         logging: false,
+         "where": {
+            "origin": id,
+            "active": true
+         }
+      }).then(function res (result)
       {
 
          data.rows = result;
@@ -737,8 +763,12 @@ exports.checkTask = function checkTask (origin, dest, eh, cb)
    {
 
       return Tasks.findAll(
-         {"where": {"server": origin,
-            "origin": dest}},
+         {
+            "where": {
+               "server": origin,
+               "origin": dest
+            }
+         },
          {"raw": true}
       ).then(function res (result, err)
       {
@@ -755,8 +785,12 @@ exports.checkTask = function checkTask (origin, dest, eh, cb)
    {
 
       return Tasks.findAll(
-         {"where": {"server": origin,
-            dest}},
+         {
+            "where": {
+               "server": origin,
+               dest
+            }
+         },
          {"raw": true}
       ).then(function res (result, err)
       {
@@ -770,8 +804,12 @@ exports.checkTask = function checkTask (origin, dest, eh, cb)
 
    }
    return Tasks.findAll(
-      {"where": {origin,
-         dest}},
+      {
+         "where": {
+            origin,
+            dest
+         }
+      },
       {"raw": true}
    ).then(function res (result, err)
    {
@@ -797,11 +835,15 @@ exports.removeTask = function removeTask (origin, dest, cb)
    {
 
       // console.log("DEBUG: removeTask() - all");
-      return Tasks.destroy({"where": {[Op.or]: [
-         {origin},
-         // !!!DO NOT REMOVE!!! The next line is what deletes tasks for channels that get deleted! !!!DO NOT REMOVE!!!
-         {"dest": origin}
-      ]}}).then(function error (result, err)
+      return Tasks.destroy({
+         "where": {
+            [Op.or]: [
+               {origin},
+               // !!!DO NOT REMOVE!!! The next line is what deletes tasks for channels that get deleted! !!!DO NOT REMOVE!!!
+               {"dest": origin}
+            ]
+         }
+      }).then(function error (result, err)
       {
 
          cb(
@@ -812,10 +854,16 @@ exports.removeTask = function removeTask (origin, dest, cb)
       });
 
    }
-   return Tasks.destroy({"where": {[Op.or]: [
-      {origin,
-         dest}
-   ]}}).then(function error (result, err)
+   return Tasks.destroy({
+      "where": {
+         [Op.or]: [
+            {
+               origin,
+               dest
+            }
+         ]
+      }
+   }).then(function error (result, err)
    {
 
       cb(
@@ -835,8 +883,12 @@ exports.removeTaskID = function removeTaskID (id, cb)
 {
 
    // console.log("DEBUG: Stage Remove Task by ID");
-   Tasks.destroy({"where": {id,
-      "active": true}}).then(function error (result, err)
+   Tasks.destroy({
+      "where": {
+         id,
+         "active": true
+      }
+   }).then(function error (result, err)
    {
 
       cb(
@@ -927,8 +979,10 @@ exports.increaseServersCount = function increaseServersCount (col, id)
    // console.log("DEBUG: Stage Update count in Servers table");
    return Servers.increment(
       col,
-      {logging: false,
-         "where": {id}}
+      {
+         logging: false,
+         "where": {id}
+      }
    );
 
 };
@@ -939,8 +993,10 @@ exports.increaseStatsCount = function increaseStatsCount (col, id)
    // console.log("DEBUG: Stage Update counts in stats table");
    return Stats.increment(
       col,
-      {logging: false,
-         "where": {id}},
+      {
+         logging: false,
+         "where": {id}
+      },
    );
 
 };
@@ -955,14 +1011,14 @@ exports.getStats = function getStats (callback)
    // console.log("DEBUG: Stage Get bot stats");
    return db.query(
       `select * from (select sum(count) as "totalCount", ` +
-  `count(id)-1 as "totalServers" from servers) as table1, ` +
-  `(select count(id)-1 as "activeSrv" from servers where active = TRUE) as table2, ` +
-  `(select lang as "botLang" from servers where id = 'bot') as table3, ` +
-  `(select count(distinct origin) as "activeTasks" ` +
-  `from tasks where active = TRUE) as table4, ` +
-  `(select count(distinct dest) as "activeUserTasks" ` +
-  `from tasks where active = TRUE and dest like '@%') as table5,` +
-  `(select * from stats where id = 'bot') as table6;`,
+      `count(id)-1 as "totalServers" from servers) as table1, ` +
+      `(select count(id)-1 as "activeSrv" from servers where active = TRUE) as table2, ` +
+      `(select lang as "botLang" from servers where id = 'bot') as table3, ` +
+      `(select count(distinct origin) as "activeTasks" ` +
+      `from tasks where active = TRUE) as table4, ` +
+      `(select count(distinct dest) as "activeUserTasks" ` +
+      `from tasks where active = TRUE and dest like '@%') as table5,` +
+      `(select * from stats where id = 'bot') as table6;`,
       {"type": Sequelize.QueryTypes.SELECT},
    ).
       then(
@@ -985,14 +1041,16 @@ exports.getServerInfo = function getServerInfo (id, callback)
 
    // console.log("DEBUG: Stage Get server info");
    return db.query(`select * from (select count as "count",` +
-   `lang as "lang" from servers where id = ?) as table1,` +
-   `(select count(distinct origin) as "activeTasks"` +
-   `from tasks where server = ?) as table2,` +
-   `(select count(distinct dest) as "activeUserTasks"` +
-   `from tasks where dest like '@%' and server = ?) as table3, ` +
-   `(select * from stats where id = ?) as table4, ` +
-   `(select * from servers where id = ?) as table5; `, {"replacements": [ id, id, id, id, id],
-      "type": db.QueryTypes.SELECT}).
+      `lang as "lang" from servers where id = ?) as table1,` +
+      `(select count(distinct origin) as "activeTasks"` +
+      `from tasks where server = ?) as table2,` +
+      `(select count(distinct dest) as "activeUserTasks"` +
+      `from tasks where dest like '@%' and server = ?) as table3, ` +
+      `(select * from stats where id = ?) as table4, ` +
+      `(select * from servers where id = ?) as table5; `, {
+      "replacements": [id, id, id, id, id],
+      "type": db.QueryTypes.SELECT
+   }).
       then(
          (result) => callback(result),
          (err) => this.updateColumns()

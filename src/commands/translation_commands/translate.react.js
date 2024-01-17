@@ -25,7 +25,7 @@ module.exports = function run (data, client)
 
    const emoji = data.emoji.name;
 
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       emoji && countryLangs,
       emoji
    ))

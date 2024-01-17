@@ -400,7 +400,7 @@ module.exports = function run (data)
 
          output.main = output.main.toLowerCase();
 
-         if (Object.prototype.hasOwnProperty.call(
+         if (Object.hasOwn(
             cmdMap,
             output.main
          ))

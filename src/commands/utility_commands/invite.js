@@ -144,7 +144,7 @@ function remoteInvite (data)
 
    // console.log(`DEBUG: Has Perms`);
    const permParam = data.cmd.params.split(" ")[0].toLowerCase();
-   if (Object.prototype.hasOwnProperty.call(
+   if (Object.hasOwn(
       validPerms,
       permParam
    ))

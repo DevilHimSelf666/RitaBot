@@ -3,12 +3,6 @@
 // Global variables
 // -----------------
 
-// Codebeat:disable[LOC,ABC,BLOCK_NESTING]
-const time = {
-   "long": 60000,
-   "mid": 30000,
-   "short": 5000
-};
 const env = `${__dirname.slice(
    0,
    -3
@@ -28,9 +22,13 @@ const message_intents = require("./intents");
 // });
 
 
-const client = new discord.Client({intents: message_intents.GetIntents(),shards:"auto",makeCache:discord.Options.cacheWithLimits({
-   ...discord.Options.DefaultMakeCacheSettings   
-})});
+const client = new discord.Client({
+   "intents": message_intents.GetIntents(),
+   "shards": "auto",
+   "makeCache": discord.Options.cacheWithLimits({
+      ...discord.Options.DefaultMakeCacheSettings
+   })
+});
 
 const auth = require("./core/auth");
 
