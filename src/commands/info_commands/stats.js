@@ -9,7 +9,7 @@ const db = require("../../core/db");
 const auth = require("../../core/auth");
 const logger = require("../../core/logger");
 const sendMessage = require("../../core/command.send");
-
+const {ChannelType} = require("discord.js");
 // -------------
 // Command Code
 // -------------
@@ -62,7 +62,7 @@ module.exports = function run (data)
       // Get current server information
       let serverStats = "";
       let serverTranslationStats = "";
-      if (data.message.channel.type === "text" && data.cmd.server.length === 1)
+      if (data.message.channel.type === ChannelType.GuildText && data.cmd.server.length === 1)
       {
 
          const serverLang = langCheck(data.cmd.server[0].lang).valid[0];
@@ -99,7 +99,7 @@ module.exports = function run (data)
       data.color = "info";
 
       let debugStats = "";
-      if (data.message.channel.type === "text" && data.cmd.server.length === 1)
+      if (data.message.channel.type === ChannelType.GuildText && data.cmd.server.length === 1)
       {
 
          const webhookIDVar = data.cmd.server[0].webhookid;

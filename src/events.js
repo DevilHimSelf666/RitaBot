@@ -15,6 +15,7 @@ const react = require("./commands/translation_commands/translate.react");
 const botVersion = require("../package.json").version;
 const botCreator = "github.com/DevilHimSelf666";
 const joinMessage = require("./commands/info_commands/join");
+const {Events, ChannelType} = require("discord.js");
 
 // ----------
 // Core Code
@@ -114,11 +115,11 @@ exports.listen = function listen (client)
    // -----------------
 
    client.on(
-      "message",
+      Events.MessageCreate,
       (message) =>
       {
 
-         if (message.channel.type !== "dm")
+         if (message.channel.type !== ChannelType.DM)
          {
 
             if (db.server_obj[message.guild.id])

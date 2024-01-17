@@ -8,7 +8,7 @@ const translate = require("./translate");
 const logger = require("./logger");
 const botSend = require("./send");
 const fn = require("./helpers");
-
+const {ChannelType} = require("discord.js");
 // --------------
 // Proccess task
 // --------------
@@ -60,14 +60,14 @@ function startTranslation (data, i, row)
       "text": "via "
    };
 
-   if (data.message.channel.type === "text")
+   if (data.message.channel.type === ChannelType.GuildText)
    {
 
       data.footer.text += `#${data.message.channel.name}`;
 
    }
 
-   if (data.message.channel.type === "dm")
+   if (data.message.channel.type === ChannelType.DM)
    {
 
       data.footer.text += "DM";
@@ -153,7 +153,7 @@ function analyzeRows (data, i)
    data.embeds = data.message.embeds;
    data.attachments = data.message.attachments;
 
-   if (data.message.channel.type === "dm")
+   if (data.message.channel.type === ChannelType.DM)
    {
 
       const replyIndex = data.message.content.indexOf(":");

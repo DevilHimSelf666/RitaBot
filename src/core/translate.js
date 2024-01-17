@@ -9,7 +9,7 @@ const db = require("./db");
 const botSend = require("./send");
 const fn = require("./helpers");
 const auth = require("../core/auth");
-
+const {ChannelType} = require("discord.js");
 // ------------------------------------------
 // Fix broken Discord tags after translation
 // (Emojis, Mentions, Channels, Urls)
@@ -360,7 +360,7 @@ function invalidLangChecker (obj, callback)
 function updateServerStats (message)
 {
 
-   if (message.channel.type === "text")
+   if (message.channel.type === ChannelType.GuildText)
    {
 
       db.increaseStatsCount("translation", message.channel.guild.id);
@@ -450,7 +450,7 @@ module.exports = function run (data) // eslint-disable-line complexity
 
    let guild = null;
 
-   if (data.message.channel.type === "text")
+   if (data.message.channel.type === ChannelType.GuildText)
    {
 
       guild = data.message.channel.guild;

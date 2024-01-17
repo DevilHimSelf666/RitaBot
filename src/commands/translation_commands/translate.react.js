@@ -11,7 +11,7 @@ const db = require("../../core/db");
 const logger = require("../../core/logger");
 const countryLangs = require("../../core/country.langs");
 const auth = require("../../core/auth");
-
+const {ChannelType} = require("discord.js");
 // ----------------------------------------------------
 // Translate a message through discord reaction (flag)
 // ----------------------------------------------------
@@ -140,7 +140,7 @@ module.exports = function run (data, client)
                      // Start translation
                      // ------------------
 
-                     if (message.channel.type === "text")
+                     if (message.channel.type === ChannelType.GuildText)
                      {
 
                         db.increaseStatsCount("react", data.message.guild.id);

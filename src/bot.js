@@ -11,7 +11,7 @@ require("dotenv").config({
    "path": env
 });
 const discord = require("discord.js");
-const message_intents = require("./intents");
+// const message_intents = require("./intents");
 // const client = new discord.Client({
 //    "restRequestTimeout": time.mid,
 //    "shards": "auto",
@@ -20,10 +20,20 @@ const message_intents = require("./intents");
 //    "messageSweepInterval": 90,
 //    "messageCacheMaxSize": 0
 // });
-
-
+const myIntents = new discord.IntentsBitField();
+myIntents.add(
+   discord.IntentsBitField.Flags.GuildMessages,
+   discord.IntentsBitField.Flags.Guilds,
+   discord.IntentsBitField.Flags.GuildMessageReactions,
+   discord.IntentsBitField.Flags.GuildWebhooks,
+   discord.IntentsBitField.Flags.GuildInvites,
+   discord.IntentsBitField.Flags.DirectMessages,
+   discord.IntentsBitField.Flags.Guilds,
+   discord.IntentsBitField.Flags.GuildMembers,
+   discord.IntentsBitField.Flags.MessageContent
+);
 const client = new discord.Client({
-   "intents": message_intents.GetIntents(),
+   "intents": myIntents,
    "shards": "auto",
    "makeCache": discord.Options.cacheWithLimits({
       ...discord.Options.DefaultMakeCacheSettings

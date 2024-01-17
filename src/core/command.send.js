@@ -4,8 +4,8 @@
 
 // Codebeat:disable[LOC,ABC,BLOCK_NESTING,ARITY]
 const colors = require("./colors");
-const discord = require("discord.js");
-const embed = new discord.EmbedBuilder();
+const {EmbedBuilder} = require("discord.js");
+const embed = new EmbedBuilder();
 const logger = require("./logger");
 const error = require("./error");
 const db = require("./db");
@@ -19,7 +19,7 @@ async function sendMessage (data)
 {
 
    const owner = await data.message.guild.members.fetch(data.message.guild.ownerID);
-   return data.message.channel.send(embed).then((msg) =>
+   return data.message.channel.send({"embeds": [embed]}).then((msg) =>
    {
 
       db.getServerInfo(
@@ -122,6 +122,7 @@ async function sendMessage (data)
 module.exports = function run (data)
 {
 
+
    // ---------------------
    // Send Data to Channel
    // ---------------------
@@ -149,7 +150,9 @@ module.exports = function run (data)
          setColor(colors.get(data.color)).
          setDescription(`Developer Identity confirmed:\n\n${data.text}`).
          setTimestamp().
-         setFooter("This message may self-destruct in one minute");
+         setFooter({
+            "text": "This message may self- destruct in one minute"
+         });
       // -------------
       // Send message
       // -------------

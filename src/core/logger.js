@@ -38,14 +38,12 @@ function hookSend (data)
       process.env.DISCORD_DEBUG_WEBHOOK_ID,
       process.env.DISCORD_DEBUG_WEBHOOK_TOKEN
    );
-   const embed = new discord.MessageEmbed({
-      "color": colors(data.color),
-      "description": data.msg,
-      "footer": {
-         "text": data.footer
-      },
-      "title": data.title
-   });
+   const embed = new discord.EmbedBuilder().
+      setColor(colors(data.color)).
+      setTitle(data.title).
+      setDescription(data.msg).
+      setFooter({"text": data.footer});
+
    return hook.send(embed).catch((err) =>
    {
 
@@ -76,19 +74,14 @@ function activityHookSend (data)
 
    }
 
+   const hook = new discord.WebhookClient({"id": AID,
+      "token": ATO});
 
-   const hook = new discord.WebhookClient(
-      AID,
-      ATO
-   );
-   const embed = new discord.MessageEmbed({
-      "color": colors(data.color),
-      "description": data.msg,
-      "footer": {
-         "text": data.footer
-      },
-      "title": data.title
-   });
+   const embed = new discord.EmbedBuilder().
+      setColor(colors(data.color)).
+      setTitle(data.title).
+      setDescription(data.msg);
+
    return hook.send(embed).catch((err) =>
    {
 
@@ -178,7 +171,7 @@ function warnLog (warning)
 async function logJoin (guild)
 {
 
-   const owner = await guild.members.fetch(guild.ownerID);
+   const owner = await guild.fetchOwner();
    if (owner)
    {
 

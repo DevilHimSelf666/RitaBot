@@ -9,7 +9,7 @@
 const db = require("../../core/db");
 const auth = require("../../core/auth");
 const sendMessage = require("../../core/command.send");
-
+const {ChannelType} = require("discord.js");
 // ---------------
 // Database error
 // ---------------
@@ -342,7 +342,7 @@ module.exports = function run (data)
    // Disallow this command in Direct/Private messages
    // -------------------------------------------------
 
-   if (data.message.channel.type === "dm")
+   if (data.message.channel.type === ChannelType.GuildText)
    {
 
       data.color = "warn";

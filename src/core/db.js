@@ -10,6 +10,7 @@
 const autoTranslate = require("./auto");
 const Sequelize = require("sequelize");
 const logger = require("./logger");
+const {ChannelType} = require("discord.js");
 const Op = Sequelize.Op;
 let dbNewPrefix = "";
 const server_obj = {};
@@ -637,7 +638,7 @@ exports.channelTasks = function channelTasks (data)
 
    // console.log("DEBUG: Stage Get Channel Tasks");
    let id = data.message.channel.id;
-   if (data.message.channel.type === "dm")
+   if (data.message.channel.type === ChannelType.DM)
    {
 
       // console.log("DEBUG: Line 609 - DB.js");

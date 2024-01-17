@@ -9,7 +9,7 @@ const db = require("./core/db");
 const fn = require("./core/helpers");
 const cmdArgs = require("./commands/args");
 const auth = require("./core/auth");
-
+const {ChannelType} = require("discord.js");
 // --------------------
 // Listen for messages
 // --------------------
@@ -19,7 +19,7 @@ module.exports = async function run (config, message)
 {
 
    module.exports.message = message;
-   if (message.channel.type === "dm" || message.type !== "DEFAULT")
+   if (message.channel.type === ChannelType.DM || message.type !== ChannelType.GuildText)
    {
 
       return;
@@ -73,7 +73,7 @@ module.exports = async function run (config, message)
       if (message.attachments.size !== 0)
       {
 
-         if (message.channel.type === "text")
+         if (message.channel.type === ChannelType.GuildText)
          {
 
             db.increaseStatsCount("images", message.channel.guild.id);
@@ -94,7 +94,7 @@ module.exports = async function run (config, message)
       if (message.content.startsWith("https://tenor.com/"))
       {
 
-         if (message.channel.type === "text")
+         if (message.channel.type === ChannelType.GuildText)
          {
 
             db.increaseStatsCount("images", message.channel.guild.id);
@@ -125,7 +125,7 @@ module.exports = async function run (config, message)
    // Embed member permissions in message data
    // -----------------------------------------
 
-   if (message.channel.type === "text" && message.member)
+   if (message.channel.type === ChannelType.GuildText && message.member)
    {
 
       message.isAdmin =
@@ -162,7 +162,7 @@ module.exports = async function run (config, message)
       "member": message.member,
       message
    };
-   if (data.message.channel.type !== "dm")
+   if (data.message.channel.type !== ChannelType.DM)
    {
 
       if (data.member)

@@ -1,15 +1,20 @@
-const discord = require("discord.js");
-exports.GetIntents = function GetIntents ()
+/* eslint-disable func-names */
+
+const {GatewayIntentBits} = require("discord.js");
+exports.GetIntents = () =>
 {
 
-   const _intents = new discord.IntentsBitField();
-   _intents.add(
-      discord.IntentsBitField.Flags.MessageContent, discord.IntentsBitField.Flags.GuildMessages,
-      discord.IntentsBitField.Flags.GuildMessageReactions, discord.IntentsBitField.Flags.GuildWebhooks,
-      discord.IntentsBitField.Flags.GuildInvites, discord.IntentsBitField.Flags.DirectMessages,
-      discord.IntentsBitField.Flags.GuildMembers, discord.IntentsBitField.Flags.Guilds
-   );
+   const intends = [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildMessageReactions,
+      GatewayIntentBits.GuildWebhooks,
+      GatewayIntentBits.GuildInvites,
+      GatewayIntentBits.DirectMessages,
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMembers
+   ];
 
-   return _intents;
+   return intends;
 
 };

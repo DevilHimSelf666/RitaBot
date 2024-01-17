@@ -40,8 +40,7 @@ const cmdTranslateAuto = require("./translation_commands/translate.auto");
 const cmdTranslateStop = require("./translation_commands/translate.stop");
 const cmdTranslateTasks = require("./translation_commands/translate.tasks");
 const cmdVersion = require("./info_commands/version");
-
-
+const {ChannelType} = require("discord.js");
 // ---------------------------------------
 // Extract a parameter's value with regex
 // ---------------------------------------
@@ -269,7 +268,7 @@ module.exports = function run (data)
 
    let id = "bot";
 
-   if (data.message.channel.type === "text")
+   if (data.message.channel.type === ChannelType.GuildText)
    {
 
       id = data.message.channel.guild.id;
@@ -326,11 +325,11 @@ module.exports = function run (data)
 
          data.canWrite = true;
 
-         if (data.message.channel.type === "text")
+         if (data.message.channel.type === ChannelType.GuildText)
          {
 
             data.canWrite = fn.checkPerm(
-               data.message.channel.guild.me,
+               data.message.channel.guild.members.me,
                data.message.channel,
                "SEND_MESSAGES"
             );

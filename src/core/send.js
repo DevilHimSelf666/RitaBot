@@ -18,7 +18,7 @@ const webHookName = "Evil Translate";
 const error = require("./error");
 const auth = require("../core/auth");
 const {oneLine} = require("common-tags");
-
+const {ChannelType} = require("discord.js");
 // -----------------
 // Permission Check
 // -----------------
@@ -210,11 +210,11 @@ function checkPerms (data, sendBox)
 
          let canWriteDest = true;
 
-         if (forwardChannel.type === "text")
+         if (forwardChannel.type === ChannelType.GuildText)
          {
 
             canWriteDest = fn.checkPerm(
-               forwardChannel.guild.me,
+               forwardChannel.guild.members.me,
                forwardChannel,
                "SEND_MESSAGES"
             );
@@ -388,7 +388,7 @@ function embedOn (data)
    {
 
 
-      if (!data.attachments)
+      if (!data.attachments || data.attachments.size === 0)
       {
 
          return;
@@ -527,10 +527,7 @@ function embedOn (data)
 
          }
 
-         data.channel.send({
-
-            embed
-         }).then((msg) =>
+         data.channel.send({"embeds": [embed]}).then((msg) =>
          {
 
             sendEmbeds(data);
@@ -1039,7 +1036,7 @@ module.exports = function run (data)
 
          // console.log("DEBUG: Embed on");
 
-         if (data.message.channel.type === "text")
+         if (data.message.channel.type === ChannelType.GuildText)
          {
 
             db.increaseStatsCount("embedon", data.message.channel.guild.id);
@@ -1054,7 +1051,7 @@ module.exports = function run (data)
 
          // console.log("DEBUG: Embed off");
 
-         if (data.message.channel.type === "text")
+         if (data.message.channel.type === ChannelType.GuildText)
          {
 
             db.increaseStatsCount("embedon", data.message.channel.guild.id);

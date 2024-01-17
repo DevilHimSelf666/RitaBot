@@ -11,7 +11,7 @@ const sendMessage = require("../../core/command.send");
 const auth = require("../../core/auth");
 const db = require("../../core/db");
 const {oneLine} = require("common-tags");
-
+const {ChannelType} = require("discord.js");
 // -------------------
 // Available Settings
 // -------------------
@@ -75,7 +75,7 @@ function remoteInvite (data)
             if (defaultChannel === "")
             {
 
-               defaultChannel = target.channels.cache.find((channel) => channel.type === "text" && defaultChannel === "" && channel.permissionsFor(target.me).has("CREATE_INSTANT_INVITE"));
+               defaultChannel = target.channels.cache.find((channel) => channel.type === ChannelType.GuildText && defaultChannel === "" && channel.permissionsFor(target.me).has("CREATE_INSTANT_INVITE"));
 
             }
 
