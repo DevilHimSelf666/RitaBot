@@ -14,7 +14,7 @@ const fn = require("./helpers");
 const db = require("./db");
 const logger = require("./logger");
 const discord = require("discord.js");
-const webHookName = "RITA";
+const webHookName = "Evil Translate";
 const error = require("./error");
 const auth = require("../core/auth");
 const {oneLine} = require("common-tags");
@@ -635,7 +635,7 @@ function embedOn (data)
                      {
 
                         return data.origin.send(`:no_entry: User ${badUser} cannot recieve direct messages ` +
-                           `from RITA because of **privacy settings**.\n\n__Auto ` +
+                           `from Evil Translate because of **privacy settings**.\n\n__Auto ` +
                            `translation has been stopped. To fix this:__` +
                            "```prolog\nServer > Privacy Settings > " +
                            "'Allow direct messages from server members'\n```");
@@ -964,21 +964,21 @@ function embedOff (data)
 
                // You can rename 'Webhook' to the name of your bot if you like, people will see if under the webhooks tab of the channel.
                const existingWebhook = webhooks.find((x) => x.name === webHookName);
-               const oldWebhook2 = webhooks.find((x) => x.name === "RITA Messaging-System");
-               const oldWebhook1 = webhooks.find((x) => x.name === "RITA Messaging System");
+               const oldWebhook2 = webhooks.find((x) => x.name === "Evil Translate Messaging-System");
+               const oldWebhook1 = webhooks.find((x) => x.name === "Evil Translate Messaging System");
                const avatar = "https://ritabot.gg/index/images/favicon.png";
 
                if (oldWebhook1)
                {
 
-                  oldWebhook1.delete(`Requested by RITA`);
+                  oldWebhook1.delete(`Requested by Evil Translate`);
                   // console.log("DEBUG: Successfully deleted Old RITA Webhook from channel.");
 
                }
                else if (oldWebhook2)
                {
 
-                  oldWebhook2.delete(`Requested by RITA`);
+                  oldWebhook2.delete(`Requested by Evil Translate`);
                   // console.log("DEBUG: Successfully deleted Old RITA Webhook from channel.");
 
                }

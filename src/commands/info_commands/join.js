@@ -167,9 +167,9 @@ module.exports.newBot = function newBot (data)
       ],
 
       "footer": {
-         "text": `RITA is developed by the RITA Bot Project`
+         "text": `Evil Translate is developed by the Pouya samie based on Rita bot`
       },
-      "title": "THANK YOU FOR CHOOSING TO USE RITA."
+      "title": "THANK YOU FOR CHOOSING TO USE Evil Translate."
    }});
 
 };

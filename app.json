@@ -17,10 +17,10 @@
     "Real-Time Interchangeable Translating Assistant",
     "Real-Time Interchangable Translating Assistant",
     "Free Translator",
-    "Open source translator" 
+    "Open source translator"
   ],
   "logo": "https://cdn.discordapp.com/attachments/599327653752995861/759555905661960212/android-chrome-192x192.png",
-  "repository": "https://github.com/DevilHimSelf666/RitaBot",
+  "repository": "https://github.com/pouyaSamie/Evil-Translate-for-Discord-Based-on-Rita",
   "success_url": "/",
   "env": {
     "DISCORD_TOKEN": {

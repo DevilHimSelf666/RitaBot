@@ -39,7 +39,7 @@ function remoteInvite (data)
             `__**Invite - Target Server Invite**__\n\n` +
             `Targeted server: \`Unknown\`\n` +
             `Targeted ID: \`${data.cmd.num}\`\n\n` +
-            `Invalid Server ID or RITA is no longer in this server.\n\n`;
+            `Invalid Server ID or Evil Translate is no longer in this server.\n\n`;
             data.color = "warn";
             return sendMessage(data);
 

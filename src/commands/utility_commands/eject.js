@@ -46,7 +46,7 @@ module.exports.eject = async function eject (data)
    else if (owner)
    {
 
-      const writeErr = `Rita has been removed from ${target.name} for Abuse. Continued abuse will result in Blacklisting`;
+      const writeErr = `Evil Translate has been removed from ${target.name} for Abuse. Continued abuse will result in Blacklisting`;
 
       // ----------------------
       // Send message to owner
@@ -111,21 +111,21 @@ module.exports.warn = async function warn (data)
       // ----------------
 
       data.color = "info";
-      data.text = oneLine`\`\`\`Server ID: ${serverID}\nRita is not in this server, Please Blacklist.\n\`\`\``;
+      data.text = oneLine`\`\`\`Server ID: ${serverID}\nEvil Translate is not in this server, Please Blacklist.\n\`\`\``;
       return sendMessage(data);
 
    }
    else if (owner)
    {
 
-      const writeErr = `Hi ${owner}, And thank you for deciding to give RITA a try.\n\n` +
-      `Unfortunately the recent usage of RITA in **${target.name}** server looks a bit suspicious.\n\n` +
-      `If you are having technical issues with RITA and you need some help please come and join us\n` +
+      const writeErr = `Hi ${owner}, And thank you for deciding to give Evil Translate a try.\n\n` +
+      `Unfortunately the recent usage of Evil Translate in **${target.name}** server looks a bit suspicious.\n\n` +
+      `If you are having technical issues with Evil Translate and you need some help please come and join us\n` +
       `in our support server. If however the current volume of usage continues, we may be forced to\n` +
-      `remove rita from your server.\n\n` +
+      `remove Evil Translate from your server.\n\n` +
       `We don't want to do this, if we have made a mistake and your server is just really busy then \n` +
-      `please let us know ASAP as we don't want to deprive you of using RITA.\n\n` +
-      `Thank You - RITA Dev Team\n\n` +
+      `please let us know ASAP as we don't want to deprive you of using Evil Translate.\n\n` +
+      `Thank You - Evil Translate Dev Team\n\n` +
       `Support Server: https://discord.gg/hXaedzCQ8d\n\n`;
 
       // ----------------------

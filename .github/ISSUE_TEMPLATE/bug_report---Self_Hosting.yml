@@ -25,7 +25,7 @@ body:
     id: RITA-type
     attributes:
       label: RITA version
-      description: Which version of RITA are you using? Run `!tr version` in discord.
+      description: Which version of Evil Translate are you using? Run `!tr version` in discord.
       placeholder: 1.x.x (we no longer support version 1.2.5 or earlier)
     validations:
       required: true
@@ -48,7 +48,7 @@ body:
   - type: dropdown
     id: partials
     attributes:
-      label: What Permissions does RITA have in your server
+      label: What Permissions does Evil Translate have in your server
       description: |
         Run `!tr check` in your server to get this info.
 

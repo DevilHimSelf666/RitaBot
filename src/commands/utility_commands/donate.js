@@ -9,20 +9,18 @@ const sendMessage = require("../../core/command.send");
 // Donate varible command handalr
 // ------------------------------
 
-function donate (data)
-{
+function donate(data) {
 
    const commandVariable1 = data.cmd.params.split(" ")[0].toLowerCase();
 
-   if (commandVariable1 === "github")
-   {
+   if (commandVariable1 === "github") {
 
       // console.log(`DEBUG: donate ${commandVariable1}`);
       {
 
          const outputgh =
             "**```Donate via github```**\n" +
-            `Thank you for wanting to donate to the RITA Bot Project \n` +
+            `Thank you for wanting to donate to the Evil Translate Bot Project \n` +
             `https://github.com/sponsors/RitaBot-Project\n\n`;
          data.color = "info";
          data.text = outputgh;
@@ -36,16 +34,15 @@ function donate (data)
       }
 
    }
-   else if (commandVariable1 === "oc")
-   {
+   else if (commandVariable1 === "oc") {
 
       // console.log(`DEBUG: donate ${commandVariable1}`);
       {
 
          const outputoc =
-          "**```Donate via Open Collective```**\n" +
-          `Thank you for wanting to donate to the RITA Bot Project \n` +
-          `https://opencollective.com/ritabot-project\n\n`;
+            "**```Donate via github```**\n" +
+            `Thank you for wanting to donate to the Evil Translate Bot Project \n` +
+            `https://github.com/pouyaSamie/Evil-Translate-for-Discord-Based-on-Rita\n\n`;
          data.color = "info";
          data.text = outputoc;
 
@@ -76,26 +73,20 @@ function donate (data)
 // Command Code
 // -------------
 
-module.exports = function run (data)
-
-{
+module.exports = function run(data) {
 
    // -----------------------------------
    // Error if settings param is missing
    // -----------------------------------
 
-   if (!data.cmd.params)
-   {
+   if (!data.cmd.params) {
 
       data.color = "info";
       data.text =
-         "Thank you for wanting to donate to the RITA Bot Project \n" +
+         "Thank you for wanting to donate to the Evil Translate Bot Project \n" +
          "You can donate via the Open Collective \n" +
-         `https://opencollective.com/ritabot-project\n\n` +
          "or via GitHub Sponsors \n" +
-         `https://github.com/sponsors/RitaBot-Project\n\n` +
-         "For more info on what we use the donations for check out \n" +
-         `https://ritabot.gg/donate/\n\n`;
+         `https://github.com/pouyaSamie/Evil-Translate-for-Discord-Based-on-Rita\n\n`;
 
       // -------------
       // Send message
@@ -112,5 +103,3 @@ module.exports = function run (data)
    return donate(data);
 
 };
-
-

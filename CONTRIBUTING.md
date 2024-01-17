@@ -9,7 +9,7 @@ Firstly, thank you for wanting to contribute to this project, here are a few gui
 * Elegant and well-commented code.
 * Meaningful commit/pull-req descriptions.
 
-## Contributing code to RITA (Real-Time Intergalactic Translating Assistant)
+## Contributing code to Evil Translate (Real-Time Intergalactic Translating Assistant)
 
 * You must make your own clone/fork of the bot for development/testing.
 * Use `gulp watch` during development for auto linting and building.  

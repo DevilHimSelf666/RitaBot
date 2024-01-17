@@ -33,7 +33,7 @@ module.exports.ban = function ban (data)
          {
 
             member.
-               ban("Banned By RITA Ban Command").
+               ban("Banned By Evil Translate Ban Command").
                then(() =>
                {
 
@@ -210,7 +210,7 @@ module.exports.kick = function kick (data)
          {
 
             member.
-               kick("Kicked By RITA Kick Command").
+               kick("Kicked By Evil Translate Kick Command").
                then(() =>
                {
 

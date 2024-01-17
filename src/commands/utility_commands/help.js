@@ -165,7 +165,7 @@ function helpMessage (config, param)
    `**Report Bugs**\n\n` +
    `You can report issues in Github here:\n` +
    `- https://github.com/RitaBot-Project/RitaBot/issues\n\n` +
-   `Rita also has a support server with it's developers and contributors: \n` +
+   `Evil Translate also has a support server with it's developers and contributors: \n` +
    `- [Offical Support Server](https://discord.gg/mgNR64R) \n` +
    "\n\n";
 
@@ -221,7 +221,7 @@ function helpMessage (config, param)
    "```" +
 
    "```md\n" +
-   `# Want to Support RITA\n` +
+   `# Want to Support Evil Translate\n` +
    `* ${cmd} donate [oc/github]\n\n` +
    "```\n";
 
@@ -507,9 +507,9 @@ function helpMessage (config, param)
    `* ${cmd} settings tags [Parameter]\n\n` +
 
    `# Parameters\n` +
-   `* none - RITA won't ignore any mentions\n` +
-   `* everyone - RITA will ignore everyone and here tags\n` +
-   `* all - RITA will ignore all mentions\n` +
+   `* none - Evil Translate won't ignore any mentions\n` +
+   `* everyone - Evil Translate will ignore everyone and here tags\n` +
+   `* all - Evil Translate will ignore all mentions\n` +
    "```" +
 
    "```md\n" +
@@ -664,11 +664,11 @@ function helpMessage (config, param)
    // ----------
 
    const donate =
-   `__**Want to Donate to RITA's Development **__\n\n` +
+   `__**Want to Donate to Evil Translate's Development **__\n\n` +
 
    "```md\n" +
    `# Donate\n` +
-   `* Becoming a Sponsor, Supporter or Backer of RitaBot will \n` +
+   `* Becoming a Sponsor, Supporter or Backer of Evil Translate Bot will \n` +
    `* allow us to continue development long into the future, \n` +
    `* and constantly strive to add new features and functionality  \n` +
    `* to allow all users to break the language barrier and be  \n` +
@@ -677,7 +677,7 @@ function helpMessage (config, param)
    `* ${cmd} donate github\n\n` +
    `* You can Donate at Open Collective\n` +
    `* ${cmd} donate oc\n\n` +
-   `* Thank you for your continued support - RITA Dev Team` +
+   `* Thank you for your continued support - Evil Translate Dev Team` +
    "```\n";
 
    // ---------------

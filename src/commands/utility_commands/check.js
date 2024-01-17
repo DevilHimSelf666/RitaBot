@@ -60,7 +60,7 @@ function getCheck (data)
                "```" +
 
                "```md\n" +
-               `RITA is no longer in this server.\n\n` +
+               `Evil Translate is no longer in this server.\n\n` +
                "```";
                data.color = "warn";
                return devSendMessage(data);
@@ -105,7 +105,7 @@ function getCheck (data)
                "```" +
 
                "```md\n" +
-               `# RITA Permissions Check:\n`;
+               `# Evil Translate Permissions Check:\n`;
 
             if (perms.ADMINISTRATOR === true)
             {
@@ -219,7 +219,7 @@ function getCheck (data)
       // console.log(`${botPermissions}`);
       const chanResult1 =
       `__**Permission Checker - This channel**__\n\n` +
-      `RITA requires the following permssions in this channel.\n` +
+      `Evil Translate  requires the following permssions in this channel.\n` +
       "```md\n" +
 
       `# This Command has not been set up yet. Check back later\n` +
@@ -337,7 +337,7 @@ module.exports = function run (data)
                "```" +
 
                "```md\n" +
-               `# RITA Server Settings:\n` +
+               `# Evil Translate Server Settings:\n` +
                `* Allow Annocement Messages: ${server[0].announce}\n` +
                `* Embedded Message Style: ${server[0].embedstyle}\n` +
                `* Language Detection: ${server[0].langdetect}\n` +
@@ -351,7 +351,7 @@ module.exports = function run (data)
                "```" +
 
                "```md\n" +
-               `# RITA Permissions Check:\n`;
+               `# Evil Translate Permissions Check:\n`;
 
             if (perms.ADMINISTRATOR === true)
             {
