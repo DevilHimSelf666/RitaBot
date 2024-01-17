@@ -96,3 +96,4 @@ For Usage just check [RitaBot Docs](https://docs.ritabot.gg/ritabot-docs/).
 
 you are all set :)
 make sure to send an issue if you have any problems. I will try my best to solve your issues.
+you can also join the Evil translate [support discord](https://discord.gg/ZM78amWexe)
