@@ -6,17 +6,17 @@ FROM node:lts-buster-slim AS build
 # Working Directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy package.json and yarn.lock
+COPY package.json yarn.lock ./
 
 # Install Production Dependencies and Build Tools
-RUN npm install -g gulp  && npm ci --only=production 
+RUN yarn global add gulp && yarn --frozen-lockfile
 
 # Copy Source Code
 COPY . .
 
 # Build Command
-CMD [ "npm", "run", "build" ]
+CMD [ "yarn", "run", "build" ]
 
 # Production Image
 FROM node:16-alpine
@@ -30,11 +30,11 @@ ENV NODE_ENV=production
 # Working Directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy package.json and yarn.lock
+COPY package.json yarn.lock ./
 
 # Install Production Dependencies and PM2
-RUN npm ci --only=production  && npm install -g pm2
+RUN yarn --frozen-lockfile global add pm2 && yarn --frozen-lockfile --production
 
 # Copy Build Artifacts
 COPY --from=build /app/build/ build/
