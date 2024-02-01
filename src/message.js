@@ -9,7 +9,7 @@ const db = require("./core/db");
 const fn = require("./core/helpers");
 const cmdArgs = require("./commands/args");
 const auth = require("./core/auth");
-const {ChannelType} = require("discord.js");
+const {ChannelType, PermissionsBitField} = require("discord.js");
 // --------------------
 // Listen for messages
 // --------------------
@@ -129,16 +129,16 @@ module.exports = async function run (config, message)
    {
 
       message.isAdmin =
-         message.member.permissions.has("ADMINISTRATOR");
+         message.member.permissions.has(PermissionsBitField.Flags.Administrator);
 
       message.isGlobalChanManager =
-         message.member.permissions.has("MANAGE_CHANNELS");
+         message.member.permissions.has(PermissionsBitField.Flags.ManageChannels);
 
       message.isChanManager =
          fn.checkPerm(
             message.member,
             message.channel,
-            "MANAGE_CHANNELS"
+            PermissionsBitField.Flags.ManageChannels
          );
       message.isDev = auth.devID.includes(message.author.id);
       message.isBotOwner = auth.botOwner.includes(message.author.id);

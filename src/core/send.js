@@ -18,7 +18,7 @@ const webHookName = "Evil Translate";
 const error = require("./error");
 const auth = require("../core/auth");
 const {oneLine} = require("common-tags");
-const {ChannelType} = require("discord.js");
+const {ChannelType, PermissionsBitField} = require("discord.js");
 // -----------------
 // Permission Check
 // -----------------
@@ -216,7 +216,7 @@ function checkPerms (data, sendBox)
             canWriteDest = fn.checkPerm(
                forwardChannel.guild.members.me,
                forwardChannel,
-               "SEND_MESSAGES"
+               PermissionsBitField.Flags.SendMessages
             );
 
          }
@@ -1046,7 +1046,7 @@ module.exports = function run (data)
          return embedOn(data);
 
       }
-      else if (data.message.guild.me.permissions.has("MANAGE_WEBHOOKS"))
+      else if (data.message.guild.me.permissions.has(PermissionsBitField.Flags.ManageWebhooks))
       {
 
          // console.log("DEBUG: Embed off");

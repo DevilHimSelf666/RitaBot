@@ -40,7 +40,7 @@ const cmdTranslateAuto = require("./translation_commands/translate.auto");
 const cmdTranslateStop = require("./translation_commands/translate.stop");
 const cmdTranslateTasks = require("./translation_commands/translate.tasks");
 const cmdVersion = require("./info_commands/version");
-const {ChannelType} = require("discord.js");
+const {ChannelType, PermissionsBitField} = require("discord.js");
 // ---------------------------------------
 // Extract a parameter's value with regex
 // ---------------------------------------
@@ -331,7 +331,7 @@ module.exports = function run (data)
             data.canWrite = fn.checkPerm(
                data.message.channel.guild.members.me,
                data.message.channel,
-               "SEND_MESSAGES"
+               PermissionsBitField.Flags.SendMessages
             );
 
          }
