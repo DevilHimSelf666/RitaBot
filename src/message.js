@@ -9,7 +9,7 @@ const db = require("./core/db");
 const fn = require("./core/helpers");
 const cmdArgs = require("./commands/args");
 const auth = require("./core/auth");
-const {ChannelType, PermissionsBitField} = require("discord.js");
+const {ChannelType, MessageType, PermissionsBitField} = require("discord.js");
 // --------------------
 // Listen for messages
 // --------------------
@@ -19,7 +19,7 @@ module.exports = async function run (config, message)
 {
 
    module.exports.message = message;
-   if (message.channel.type === ChannelType.DM || message.type !== ChannelType.GuildText)
+   if (message.channel.type === ChannelType.DM || message.type !== MessageType.Default && message.type !== MessageType.Reply)
    {
 
       return;
